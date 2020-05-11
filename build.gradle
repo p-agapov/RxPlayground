@@ -1,0 +1,33 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id "io.freefair.lombok" version "5.0.1"
+}
+
+group 'com.agapov.reactivex'
+version 'v1.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    rxkotlinVersion3 = '3.0.0'
+    rxkotlinVersion1 = '1.0.0'
+    log4jVersion = '2.13.2'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation("io.reactivex.rxjava3:rxkotlin:$rxkotlinVersion3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.6")
+    compile group: 'io.reactivex', name: 'rxjava', version: '1.3.8'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
